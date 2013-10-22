@@ -1,0 +1,28 @@
+<h1>IdeaBox</h1>
+
+<h3>Here are the ideas that match that description</h3>
+
+<ul>
+  <% ideas.each do |idea| %>
+    <% if idea.searchable_description.any? {|word| search_by_description.include?(word)} %>
+      <form action='/<%= idea.id %>/like' method='POST' style="display: inline">
+        <input type='submit' value="Like!"/>
+      </form>
+      <li>
+        <p>
+          Idea Title: .................<%= idea.title %>
+        </p>
+        <p>
+          Idea Description: .....<%= idea.description %>
+        </p>
+        <p>
+          Idea Tags: ................<%= idea.tags %>
+        </p>
+        <p>
+          Created At: ................<%= idea.created_at.asctime %>
+        </p>
+        </form>
+      </li>
+    <% end %>
+  <% end %>
+</ul>

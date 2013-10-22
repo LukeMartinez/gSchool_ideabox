@@ -1,24 +1,26 @@
-
-    <title>IdeaBox</title>
+<title>IdeaBox</title>
   </head>
-  <body>
-    <h1>IdeaBox</h1>
-    <%= erb :form, locals: {idea: idea} %>
-
+    <body>
+      <h1>IdeaBox</h1>
+        <%= erb :form, locals: {idea: idea} %>
       <h3>Existing Ideas</h3>
-
       <ul>
         <% ideas.each do |idea| %>
           <li>
             <form action='/<%= idea.id %>/like' method='POST' style="display: inline">
-              <input type='submit' value="+"/>
+              <input type='submit' value="Like!"/>
             </form>
-            <%= idea.title %><br/>
-            <%= idea.description %>
-            <a href="/<%= idea.id %>/edit">Edit</a>
+
+            <br/> Idea Title: .................<%= idea.title %><br/>
+            Idea Description: .....<%= idea.description %><br/>
+            Idea Tags: ................<%= idea.tags if idea.tags %><br/>            
+            <a href="/<%= idea.id %>/edit">Edit</a><br/>
+            Created at: <%=idea.created_at.asctime%>
+
             <form action='/<%= idea.id %>' method='POST'>
               <input type="hidden" name="_method" value="DELETE">
-              <input type='submit' value="delete"/>
+              <input type='submit' value="delete"/><br/>
+            <hr />
             </form>
           </li>
         <% end %>

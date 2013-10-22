@@ -16,7 +16,6 @@ class IdeaStore
     ideas
   end
 
-
   def self.raw_ideas
     database.transaction do |db|
       db['ideas'] || []
@@ -33,7 +32,6 @@ class IdeaStore
     @database
   end
 
-
   def self.find(id)
     raw_idea = find_raw_idea(id)
     Idea.new(raw_idea.merge("id" => id))
@@ -47,17 +45,23 @@ class IdeaStore
   end
 
   def self.update(id, data)
+    raw_idea = find_raw_idea(id)
+    created_at = raw_idea["created_at"]
+    unless created_at.nil?
+      data["created_at"] = created_at
+    else
+      data["created_at"] = Time.now.utc
+    end
     database.transaction do
       database['ideas'][id] = data
     end
   end
     
   def self.create(data)
+    new_idea = Idea.new(data)
     database.transaction do
-      database['ideas'] << data
+      database['ideas'] ||= []
+      database['ideas'] << new_idea.to_h
     end
   end
-
-
-
 end

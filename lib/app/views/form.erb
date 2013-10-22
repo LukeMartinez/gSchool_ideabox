@@ -9,9 +9,37 @@
   <% if idea.id %>
     <input type="hidden" name="_method" value="PUT" />
   <% end %>
-  <input type='text' name='idea[title]' value="<%= idea.title %>"/><br/>
-  <textarea name='idea[description]'><%= idea.description %></textarea><br/>
+  
+  <input type='text' name='idea[title]' value="<%= idea.title %>"/> Name<br/>
+  <textarea name='idea[description]'><%= idea.description %></textarea> Description<br/>
+  <textarea name='idea[tags]'><%= idea.tags %></textarea> Tags<br/>
   <input type='submit'/>
 </form>
 
+  <%unless idea.id %>
+    <form action='/searchtags' method='GET'>
+      <input type='text' name='idea[search_tags]'>
+      <input type ='submit' value='Search By Tags!'/><br/>
+    </form>
+  <%end%>
+
+  
+
+  <form action='/searchdescription' method='GET'>  
+    <input type='text' name='idea[search_description]'>
+    <input type='submit' value='Search By Description!'>
+  </form>
+
+  <form action="/searchtime">
+    <select name="idea[search_day]">
+    <option value="Monday">Monday</option>
+    <option value="Tuesday">Tuesday</option>
+    <option value="Wednesday">Wednesday</option>
+    <option value="Thursday">Thursday</option>
+    <option value="Friday">Friday</option>
+    <option value="Saturday">Saturday</option>
+    <option value="Sunday">Sunday</option>
+    </select>
+    <input type='submit' value='Search By Day Of Week!'>
+  </form>
 
