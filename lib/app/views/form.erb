@@ -30,7 +30,7 @@
     <input type='submit' value='Search By Description!'>
   </form>
 
-  <form action="/searchtime">
+  <form action="/searchday">
     <select name="idea[search_day]">
     <option value="Monday">Monday</option>
     <option value="Tuesday">Tuesday</option>
@@ -41,5 +41,26 @@
     <option value="Sunday">Sunday</option>
     </select>
     <input type='submit' value='Search By Day Of Week!'>
+  </form>
+
+  <form action="/searchhour">
+    <select name="idea[search_hour]">
+    <option value="1">1:00</option>
+    <option value="2">2:00</option>
+    <option value="3">3:00</option>
+    <option value="4">4:00</option>
+    <option value="5">5:00</option>
+    <option value="6">6:00</option>
+    <option value="7">7:00</option>
+    <option value="8">8:00</option>
+    <option value="9">9:00</option>
+    <option value="10">10:00</option>
+    <option value="11">11:00</option>
+    <option value="12">12:00</option>
+    </select>
+    <select name="idea[am_pm]">
+    <option value="AM">AM</option>
+    <option value="PM">PM</option>
+    <input type='submit' value='Search By Hour Of The Day!'>
   </form>
 

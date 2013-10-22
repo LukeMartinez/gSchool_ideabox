@@ -1,14 +1,14 @@
 <h1>IdeaBox</h1>
 
-<h3>Here are the ideas that match that description</h3>
+<h3>Here are the ideas created on <%=search_by_day%></h3>
 
 <ul>
   <% ideas.each do |idea| %>
-    <% if idea.searchable_description.any? {|word| search_by_description.include?(word)} %>
+    <% if idea.day_of_the_week == search_by_day %>
       <form action='/<%= idea.id %>/like' method='POST' style="display: inline">
         <input type='submit' value="Like!"/>
       </form>
-      <li>
+      <li>  
         <p>
           Idea Title: .................<%= idea.title %>
         </p>
@@ -19,12 +19,12 @@
           Idea Tags: ................<%= idea.tags %>
         </p>
         <p>
-          Created At: ................<%= idea.created_at.asctime %>
+          Created At: ................<%= idea.created_at.asctime%>
         </p>
-        </form>
+        <hr />
       </li>
     <% end %>
   <% end %>
-  <% else %>
+  <%else%>
 Sorry! No items match that search criteria!
 </ul>

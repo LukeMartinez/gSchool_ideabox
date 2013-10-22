@@ -1,14 +1,14 @@
 <h1>IdeaBox</h1>
 
-<h3>Here are the ideas that match that description</h3>
+<h3>Here are the ideas created between <%=search_by_hour%>:00 and <%=search_by_hour%>:59 </h3>
 
 <ul>
   <% ideas.each do |idea| %>
-    <% if idea.searchable_description.any? {|word| search_by_description.include?(word)} %>
+    <% if idea.created_at.hour == search_by_hour.to_i || idea.created_at.hour == search_by_hour.to_i + 12 && idea.am_or_pm == search_am_pm%>
       <form action='/<%= idea.id %>/like' method='POST' style="display: inline">
         <input type='submit' value="Like!"/>
       </form>
-      <li>
+      <li>  
         <p>
           Idea Title: .................<%= idea.title %>
         </p>
@@ -19,10 +19,11 @@
           Idea Tags: ................<%= idea.tags %>
         </p>
         <p>
-          Created At: ................<%= idea.created_at.asctime %>
+          Created At: ................<%= idea.created_at.strftime("%a, %e %b %Y at %l:%M:%S %p")%>
         </p>
-        </form>
+        <hr />
       </li>
+    </form> 
     <% end %>
   <% end %>
   <% else %>

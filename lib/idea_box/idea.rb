@@ -9,11 +9,11 @@ class Idea
     @rank = attributes["rank"] || 0
     @id = attributes["id"] 
     @tags = attributes["tags"]
-    @created_at = attributes["created_at"] ||= Time.now.utc
+    @created_at = attributes["created_at"] ||= Time.now.utc.localtime
   end
   
   def searchable_tags
-    tags.gsub(",","").split(" ")
+    tags.downcase.gsub(",","").split(" ")
   end
 
   def searchable_description
@@ -36,6 +36,10 @@ class Idea
     else
       "Saturday"
     end
+  end
+
+  def am_or_pm
+    created_at.strftime("%p")
   end
 
   def <=>(other)

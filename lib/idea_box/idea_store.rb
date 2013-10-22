@@ -50,7 +50,7 @@ class IdeaStore
     unless created_at.nil?
       data["created_at"] = created_at
     else
-      data["created_at"] = Time.now.utc
+      data["created_at"] = Time.now.utc.localtime
     end
     database.transaction do
       database['ideas'][id] = data

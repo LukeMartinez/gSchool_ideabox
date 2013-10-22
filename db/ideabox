@@ -1,36 +1,17 @@
 ---
 ideas:
-- title: Watch Shows!
-  description: I should watch Vampire Diaries!
-  rank: 0
-  tags: tv, shows, vampires
-  created_at: 2013-10-22 03:34:43.000000000 Z
-- title: Watch Shows!
-  description: I should watch True Blood!
-  rank: 0
-  tags: tv, shows, vampires
-  created_at: 2013-10-22 03:35:29.000000000 Z
-- title: Watch Shows!
-  description: I should watch the Daily Show!
-  tags: tv, shows, funny
-  created_at: 2013-10-22 03:36:05.000000000 Z
-- title: Watch Shows!
-  description: I should watch South Park!
-  rank: 1
-  tags: tv, shows, funny
-  created_at: 2013-10-22 03:36:26.000000000 Z
-- title: Watch Shows!
-  description: I should watch Family Guy!
-  rank: 0
-  tags: tv, shows, funny
-  created_at: 2013-10-22 03:38:02.000000000 Z
-- title: Clean house
-  description: pick up dog poop!
-  rank: 1
-  tags: chores, house, dog
-  created_at: 2013-10-22 03:39:02.000000000 Z
 - title: Today
   description: I don't know what we are going to do today.
   rank: 0
   tags: School, Work
   created_at: 2013-10-22 14:08:51.000000000 Z
+- title: Local Time
+  description: This idea tests that .local time is working
+  rank: 0
+  tags: test, time
+  created_at: 2013-10-22 14:17:17.000000000 -06:00
+- title: Hmm
+  description: This idea is no good, but it is still an idea!
+  rank: 0
+  tags: dumb, test
+  created_at: 2013-10-22 16:14:31.000000000 -06:00
