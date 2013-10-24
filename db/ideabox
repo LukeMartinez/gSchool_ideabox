@@ -1,17 +1,56 @@
 ---
 ideas:
-- title: Today
-  description: I don't know what we are going to do today.
+- title: Watch TV
+  description: TV is good! I should watch more TV.
+  tags: tv fun shows
+  group: Misc
+  created_at: 2013-10-23 16:17:25.000000000 -06:00
+- title: IdeaBox
+  description: I need to work on Ideabox
+  tags: school work projects
+  group: Work
+  created_at: 2013-10-23 16:18:32.000000000 -06:00
+- title: CSS
+  description: I need to learn more CSS so I can stop using bootstrap!
+  tags: learning school bootstrap
+  group: School
+  created_at: 2013-10-23 16:19:07.000000000 -06:00
+- title: Clean House
+  description: I need to clean up the house when I get home
   rank: 0
-  tags: School, Work
-  created_at: 2013-10-22 14:08:51.000000000 Z
-- title: Local Time
-  description: This idea tests that .local time is working
+  tags: chores house cleaning
+  created_at: 2013-10-23 16:19:38.000000000 -06:00
+  group: Chores
+- title: Long Idea
+  description: This idea is supposed to be very long to test if the character limiter
+    works and to see what will happen to the formatin
+  rank: 2
+  tags: long test character count
+  created_at: 2013-10-23 16:29:10.000000000 -06:00
+  group: Work
+- title: What have I done?
+  description: I need to think about what I have done with my idea box. And why I
+    should never do it again.
+  rank: 5
+  tags: wrong bad messy
+  created_at: 2013-10-23 18:13:54.000000000 -06:00
+  group: School
+- title: Getting late
+  description: its getting late. I hope I can get this done!
   rank: 0
-  tags: test, time
-  created_at: 2013-10-22 14:17:17.000000000 -06:00
-- title: Hmm
-  description: This idea is no good, but it is still an idea!
+  tags: work late tired sleepy
+  created_at: 2013-10-23 20:50:18.000000000 -06:00
+  group: Work
+- title: Project Due
+  description: Just about done here. Not likely to get any more functionality out
+    of this!
   rank: 0
-  tags: dumb, test
-  created_at: 2013-10-22 16:14:31.000000000 -06:00
+  tags: "work, school, project, ideabox\r\n"
+  created_at: 2013-10-24 06:06:21.000000000 -06:00
+  group: School
+- title: Getting Late
+  description: It is getting late. I hope I can get this to work!
+  rank: 0
+  tags: late tired work
+  created_at: 2013-10-24 06:40:49.000000000 -06:00
+  group: Work

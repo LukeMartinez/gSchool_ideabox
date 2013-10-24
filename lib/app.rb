@@ -19,13 +19,18 @@ class IdeaBoxApp < Sinatra::Base
   end
 
   get '/searchtags' do
-    search_by_tag = params[:idea][:search_tags].gsub(",","").split(" ")
+    search_by_tag = params[:idea][:search_tags].downcase.gsub(",","").split(" ")
     erb :searchtags, locals: {search_by_tag: search_by_tag, ideas: IdeaStore.all.sort} #idea: Idea.new}
   end
 
   get '/searchday' do
     search_by_day = params[:idea][:search_day]
     erb :searchday, locals: {search_by_day: search_by_day, ideas: IdeaStore.all.sort}
+  end
+
+  get '/searchgroup' do
+    search_group = params[:idea][:search_group]
+    erb :searchgroup, locals: {search_group: search_group, ideas: IdeaStore.all.sort}
   end
 
   get '/searchhour' do

@@ -1,18 +1,19 @@
 <h1>IdeaBox</h1>
 
-<h3>Here are the ideas created between <%=search_by_hour%>:00 and <%=search_by_hour%>:59 </h3>
+<h3>Here are the ideas in <%=search_group%></h3>
 
 <ul>
-  <div class="row">
+  <form>
+    <div class="row">
         <% ideas.each do |idea| %>
-        <% if idea.created_at.hour == search_by_hour.to_i || idea.created_at.hour == search_by_hour.to_i + 12 && idea.am_or_pm == search_am_pm%>
+        <% if idea.group == search_group%>
           <div class="col-md-3">
             <div class="well">
             <p style="font-family:arial;color:red;font-size:25px;"><%= idea.title %></p>
             <p style="font-size:12;color:green;">In Group: <%= idea.group %><br/>
                Created at: <%=idea.created_at.strftime("%a, %e %b %Y at %l:%M %p")%></br></p>
             <p style="font-size:15px;margin-left:15px"><%= idea.description %></p>
-            <p style="color:blue;">#<%= idea.tags.gsub(" "," #") if idea.tags %></p><br/>
+            <p style="color:blue;"><a href#<%= idea.tags.gsub(" "," #") if idea.tags %></p><br/>
             
             <form action='/<%= idea.id %>/edit' method='GET' style="display: inline">
              <button type="/<%= idea.id %>/edit" class="btn btn-primary" type="button" >Edit!</button> 
@@ -28,10 +29,8 @@
             </div>
             <% end %>
             <% end %>
-            <else%>
-            Sorry. No ideas match that search.
 <!--   <% ideas.each do |idea| %>
-    <% if idea.created_at.hour == search_by_hour.to_i || idea.created_at.hour == search_by_hour.to_i + 12 && idea.am_or_pm == search_am_pm%>
+    <% if idea.group == search_group%>
       <form action='/<%= idea.id %>/like' method='POST' style="display: inline">
         <input type='submit' value="Like!"/>
       </form>
@@ -53,7 +52,7 @@
         </p>
         <hr />
       </li>
-    </form> 
+ 
     <% end %>
   <% end %>
   <% else %>

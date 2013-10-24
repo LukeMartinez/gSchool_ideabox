@@ -1,7 +1,7 @@
 class Idea
   include Comparable
 
-  attr_reader :title, :description, :rank, :id, :tags, :created_at
+  attr_reader :title, :description, :rank, :id, :tags, :created_at, :group
 
   def initialize(attributes = {})
     @title = attributes["title"]
@@ -10,6 +10,7 @@ class Idea
     @id = attributes["id"] 
     @tags = attributes["tags"]
     @created_at = attributes["created_at"] ||= Time.now.utc.localtime
+    @group = attributes["group"]
   end
   
   def searchable_tags
@@ -29,9 +30,9 @@ class Idea
       "Tuesday"
     elsif created_at.wday == 3
       "Wednesday"
-    elsif created_at.wday = 4
+    elsif created_at.wday == 4
       "Thursday"
-    elsif created_at.wday = 5
+    elsif created_at.wday == 5
       "Friday"
     else
       "Saturday"
@@ -56,7 +57,8 @@ class Idea
       "description" => description, 
       "rank" => rank,
       "tags" => tags,
-      "created_at" => created_at
+      "created_at" => created_at,
+      "group" => group
     }
   end
 
