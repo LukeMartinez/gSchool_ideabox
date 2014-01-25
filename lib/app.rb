@@ -2,7 +2,10 @@ require 'sinatra'
 require 'bundler'
 require_relative 'idea_box'
 
+
+
 class IdeaBoxApp < Sinatra::Base
+  set :static, true
   set :method_override, true
   set :root, 'lib/app'
 

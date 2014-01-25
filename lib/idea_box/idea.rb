@@ -48,7 +48,7 @@ class Idea
   end
 
   def save
-      IdeaStore.create(to_h)
+    IdeaStore.create(to_h)
   end
 
   def to_h

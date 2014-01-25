@@ -1,37 +1,18 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
   <head>
-    <!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
-
-<!-- Optional theme -->
-<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-theme.min.css">
-
-<style>
-  .badge-success {
-    background-color: rgb(70, 136, 71);
-  }
-
-.well {
-    min-height: 20px;
-    max-height: 300px;
-    padding: 19px;
-    padding-bottom: 80px;
-    margin-bottom: 20px;
-    background-color: rgb(245, 245, 245);
-    border: 1px solid rgb(227, 227, 227);
-    border-radius: 4px 4px 4px 4px;
-  }
-</style>
-
-<!-- Latest compiled and minified JavaScript -->
-<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
-
-    <div class="page-header">
-    <h1 style="margin-left:10px; font-family:arial;">Welcome To IdeaBox! <small>Making ideas since 2013.</small></h1>
-    </div>
     <title>IdeaBox</title>
+    <meta name="ideabox" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="/css/bootstrap.css">
+    <link rel="stylesheet" href="/css/bootstrap-responsive.css">
+    <link rel="stylesheet" href="/css/stylesheet.css">
+
   </head>
   <body>
-  <%= yield %>
+
+    <%= yield %>
+    <script src="http://code.jquery.com/jquery.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
   </body>
 </html>

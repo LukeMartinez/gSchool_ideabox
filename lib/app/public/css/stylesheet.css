@@ -1,0 +1,53 @@
+
+    <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-theme.min.css">
+
+<style>
+.badge-success {
+  background-color: rgb(70, 136, 71);
+}
+
+.btn-success {
+  margin-right:10px;
+}
+
+.col-md-3 {
+  width: 300px;
+  display: inline-block;
+
+}
+
+.well {
+    width: 300px;
+    min-height: 200px;
+    max-height: 300px;
+    max-width: 200px;
+
+    padding-bottom: 80px;
+    margin-bottom: 20px;
+    background-color: rgb(245, 245, 245);
+    border: 1px solid rgb(227, 227, 227);
+    border-radius: 4px 4px 4px 4px;
+  }
+
+.ideatitle { 
+  font-family: arial;color:red;font-size:25px;
+}
+.ideadescription {
+  font-size:15px;margin-left:15px
+}
+
+.tags {
+  color:blue;
+}
+
+.groups {
+  font-size:12;color:green;"
+}
+</style>
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
