@@ -1,62 +1,30 @@
 <h1>IdeaBox</h1>
-
 <h3>Here are the ideas created between <%=search_by_hour%>:00 and <%=search_by_hour%>:59 </h3>
-
 <ul>
   <div class="row">
-        <% ideas.each do |idea| %>
-        <% if idea.created_at.hour == search_by_hour.to_i || idea.created_at.hour == search_by_hour.to_i + 12 && idea.am_or_pm == search_am_pm%>
-          <div class="col-md-3">
-            <div class="well">
+    <% ideas.each do |idea| %>
+      <% if idea.created_at.hour == search_by_hour.to_i || idea.created_at.hour == search_by_hour.to_i + 12 && idea.am_or_pm == search_am_pm%>
+        <div class="col-md-3">
+          <div class="well">
             <p style="font-family:arial;color:red;font-size:25px;"><%= idea.title %></p>
             <p style="font-size:12;color:green;">In Group: <%= idea.group %><br/>
                Created at: <%=idea.created_at.strftime("%a, %e %b %Y at %l:%M %p")%></br></p>
             <p style="font-size:15px;margin-left:15px"><%= idea.description %></p>
             <p style="color:blue;">#<%= idea.tags.gsub(" "," #") if idea.tags %></p><br/>
-            
             <form action='/<%= idea.id %>/edit' method='GET' style="display: inline">
-             <button type="/<%= idea.id %>/edit" class="btn btn-primary" type="button" >Edit!</button> 
-             </form> 
-             <form action='/<%= idea.id %>' method='POST' style="display: inline">
+              <button type="/<%= idea.id %>/edit" class="btn btn-primary" type="button" >Edit!</button> 
+            </form> 
+            <form action='/<%= idea.id %>' method='POST' style="display: inline">
               <button type="/<%= idea.id %>/" class="btn btn-danger" type="button" >Delete!</button>
               <input type="hidden" name="_method" value="DELETE">
             </form>
             <form action='/<%= idea.id %>/like' method='POST' style="display: inline">
               <button type ='/<%= idea.id %>/like' class="btn btn-success" type="button" style="margin-right:10px;">Like!</button>Likes:<span class="badge badge-success"><%= idea.rank %></span>
             </form>
-            </div> 
-            </div>
-            <% end %>
-            <% end %>
-            <else%>
-            Sorry. No ideas match that search.
-<!--   <% ideas.each do |idea| %>
-    <% if idea.created_at.hour == search_by_hour.to_i || idea.created_at.hour == search_by_hour.to_i + 12 && idea.am_or_pm == search_am_pm%>
-      <form action='/<%= idea.id %>/like' method='POST' style="display: inline">
-        <input type='submit' value="Like!"/>
-      </form>
-      <li>  
-        <p>
-          Idea Title: .................<%= idea.title %>
-        </p>
-        <p>
-          Idea Description: .....<%= idea.description %>
-        </p>
-        <p>
-          Idea Tags: ................<%= idea.tags %>
-        </p>
-        <p>
-           Idea Group: ................<%= idea.group %>
-         </p>
-        <p>
-          Created At: ................<%= idea.created_at.strftime("%a, %e %b %Y at %l:%M %p")%>
-        </p>
-        <hr />
-      </li>
-    </form> 
+          </div> 
+        </div>
+      <% end %>
     <% end %>
-  <% end %>
-  <% else %>
-  Sorry! No items match that search criteria!
+  <else%>
+  Sorry. No ideas match that search.
 </ul>
- -->

@@ -1,35 +1,32 @@
 <form action='/<%= idea.id %>' method='POST'>
-
-
-  <p>
-    <% if idea.id %>
-      Edit your Idea:
-    <% else %>
-      Your Idea:
-    <% end %>
+<p>
+  <% if idea.id %>
+    Edit your Idea:
+  <% else %>
+    Your Idea:
+  <% end %>
   </p>
   <input type='text' name='idea[title]'  value="<%= idea.title %>"/> Name<br/>
   <textarea name='idea[description]'maxlength="120"><%= idea.description %></textarea> Description<br/>
   <form>
-  <textarea name='idea[tags]'><%= idea.tags %></textarea> Tags<br/>
-    <select name="idea[group]">
+    <textarea name='idea[tags]'><%= idea.tags %></textarea> Tags<br/>
+      <select name="idea[group]">
       <% if idea.id %>
-      <option selected=<%idea.group%>><%=idea.group%></option>
+        <option selected=<%idea.group%>><%=idea.group%></option>
       <%end%>
-      <option value="Misc">Misc.</option>
-      <option value="Travel">Travel</option>
-      <option value="Work">Work</option>
-      <option value="Chores">Chores</option>
-      <option value="School">School</option>
-      <option value="Errands">Errands</option>
-    </select> Select Idea Group<br/>
-    <button type='submit'/ class="btn btn-primary" type="button">Submit Your Idea!</button>
-      <br/><% if idea.id %>
-    <input type="hidden" name="_method" value="PUT" />
-
-    <button type='submit'/ class="btn btn-primary" type="button">Submit Your Idea!</button>
-    <br/>
-
+        <option value="Misc">Misc.</option>
+        <option value="Travel">Travel</option>
+        <option value="Work">Work</option>
+        <option value="Chores">Chores</option>
+        <option value="School">School</option>
+        <option value="Errands">Errands</option>
+      </select> Select Idea Group<br/>
+      <button type='submit'/ class="btn btn-primary" type="button">Submit Your Idea!</button>
+      <br/>
+      <% if idea.id %>
+        <input type="hidden" name="_method" value="PUT" />
+        <button type='submit'/ class="btn btn-primary" type="button">Submit Your Idea!</button>
+      <br/>
       <% end %>
   </form>
   <%unless idea.id %>
@@ -68,30 +65,28 @@
     <button style="margin-left:55px;" type='search_by_group'/ class="btn btn-primary" type="button">Search By Group!</button>
   </form>
   <p>
-  <form action="/searchhour">
-    <select name="idea[search_hour]">
-      <option value="1">1:00</option>
-      <option value="2">2:00</option>
-      <option value="3">3:00</option>
-      <option value="4">4:00</option>
-      <option value="5">5:00</option>
-      <option value="6">6:00</option>
-      <option value="7">7:00</option>
-      <option value="8">8:00</option>
-      <option value="9">9:00</option>
-      <option value="10">10:00</option>
-      <option value="11">11:00</option>
-      <option value="12">12:00</option>
-    </select>
-    <select name="idea[am_pm]">
-    <option value="AM">AM</option>
-    <option value="PM">PM</option>
-    <!-- <input type='submit' value='Search By Hour Of The Day!'> -->
-    </select>
-    <button type='search_by_hour'/ class="btn btn-primary" type="button">Search By Hour of The Day!</button>
-</form>
-    <p/>
-      <%end%>
-
+    <form action="/searchhour">
+      <select name="idea[search_hour]">
+        <option value="1">1:00</option>
+        <option value="2">2:00</option>
+        <option value="3">3:00</option>
+        <option value="4">4:00</option>
+        <option value="5">5:00</option>
+        <option value="6">6:00</option>
+        <option value="7">7:00</option>
+        <option value="8">8:00</option>
+        <option value="9">9:00</option>
+        <option value="10">10:00</option>
+        <option value="11">11:00</option>
+        <option value="12">12:00</option>
+      </select>
+      <select name="idea[am_pm]">
+      <option value="AM">AM</option>
+      <option value="PM">PM</option>
+      </select>
+      <button type='search_by_hour'/ class="btn btn-primary" type="button">Search By Hour of The Day!</button>
+    </form>
+  <p/>
+  <%end%>
 </form>
 
