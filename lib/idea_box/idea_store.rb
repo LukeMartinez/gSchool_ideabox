@@ -1,3 +1,4 @@
+
 require 'yaml/store'
 
 class IdeaStore

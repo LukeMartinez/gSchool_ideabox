@@ -1,6 +1,6 @@
+require 'sinatra'
 require 'bundler'
-require 'idea_box'
-Bundler.require
+require_relative 'idea_box'
 
 class IdeaBoxApp < Sinatra::Base
   set :method_override, true
