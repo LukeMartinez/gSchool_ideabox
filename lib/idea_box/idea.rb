@@ -17,6 +17,10 @@ class Idea
     tags.downcase.gsub(",","").split(" ")
   end
 
+  def tag_match?(params)
+    self.searchable_tags.any? {|tag_letter| params.include?(tag_letter)}
+  end
+
   def searchable_description
     description.downcase.gsub(/[^\w\s]/,"").split(" ")
   end
@@ -63,7 +67,7 @@ class Idea
   end
 
   def database
-    Idea.database   #<---- what is this doing?
+    Idea.database
   end
 
   def like!

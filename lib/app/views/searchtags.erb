@@ -1,11 +1,10 @@
 <h1>IdeaBox</h1>
 
 <h3>Here are the ideas that match those tags!</h3>
-
 <ul>
   <div class="row">
     <% ideas.each do |idea| %>
-      <% if idea.searchable_tags.any? {|tag| search_by_tag.include?(tag)}  %>
+      <% if idea.tag_match?(search_by_tag) %>
         <%= erb :'partials/_idea', :layout => false, :locals => { :idea => idea} %>
       <% end %>
     <% end %>

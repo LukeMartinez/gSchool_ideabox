@@ -1,5 +1,6 @@
 require 'sinatra'
 require 'bundler'
+require 'better_errors'
 require_relative 'idea_box'
 
 
@@ -11,6 +12,8 @@ class IdeaBoxApp < Sinatra::Base
 
   configure :development do
     register Sinatra::Reloader
+    use BetterErrors::Middleware
+    BetterErrors.application_root = __dir__
   end
   
   not_found do
@@ -23,7 +26,7 @@ class IdeaBoxApp < Sinatra::Base
 
   get '/searchtags' do
     search_by_tag = params[:idea][:search_tags].downcase.gsub(",","").split(" ")
-    erb :searchtags, locals: {search_by_tag: search_by_tag, ideas: IdeaStore.all.sort} #idea: Idea.new}
+    erb :searchtags, locals: {search_by_tag: search_by_tag, ideas: IdeaStore.all.sort}
   end
 
   get '/searchday' do
