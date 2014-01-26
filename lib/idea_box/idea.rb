@@ -4,13 +4,13 @@ class Idea
   attr_reader :title, :description, :rank, :id, :tags, :created_at, :group
 
   def initialize(attributes = {})
-    @title = attributes["title"]
-    @description = attributes["description"]
-    @rank = attributes["rank"] || 0
-    @id = attributes["id"] 
-    @tags = attributes["tags"]
-    @created_at = attributes["created_at"] ||= Time.now.utc.localtime
-    @group = attributes["group"]
+    @title =        attributes["title"]
+    @description =  attributes["description"]
+    @rank =         attributes["rank"] || 0
+    @id =           attributes["id"] 
+    @tags =         attributes["tags"]
+    @created_at =   attributes["created_at"] ||= Time.now.utc.localtime
+    @group =        attributes["group"]
   end
   
   def searchable_tags
@@ -21,10 +21,16 @@ class Idea
     self.searchable_tags.any? {|tag_letter| params.include?(tag_letter)}
   end
 
-  def hour_match?(searchhour, ampm)
-    self.created_at.hour == searchhour.to_i || 
-    self.created_at.hour == searchhour.to_i + 12 && 
-    self.am_or_pm == ampm
+  def time_match?(searchhour, ampm)
+    hour_match?(searchhour) && am_pm_match?(ampm)
+  end
+
+  def hour_match?(searchhour)
+    created_at.hour == searchhour.to_i || created_at.hour == searchhour.to_i + 12
+  end
+
+  def am_pm_match?(ampm)
+    am_or_pm == ampm
   end
 
   def searchable_description

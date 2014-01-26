@@ -3,7 +3,7 @@
 <ul>
   <div class="row">
     <% ideas.each do |idea| %>
-      <% if idea.hour_match?(search_by_hour, search_am_pm)%>
+      <% if idea.time_match?(search_by_hour, search_am_pm)%>
         <%= erb :'partials/_idea', :layout => false, :locals => { :idea => idea} %>
       <%end%>
     <% end %>
