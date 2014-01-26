@@ -6,25 +6,7 @@
     <ul>
       <div class="row">
         <% ideas.each do |idea| %>
-          <div class="col-md-3">
-            <div class="well">
-              <p class="ideatitle"><%= idea.title %></p>
-              <p class="groups" >In Group: <%= idea.group %><br/>
-                Created at: <%=idea.created_at.strftime("%a, %e %b %Y at %l:%M %p")%></br></p>
-              <p class="ideadescrription"><%= idea.description %></p>
-              <p class="tags">#<%= idea.tags.gsub(" "," #") if idea.tags %></p><br/>
-              <form action='/<%= idea.id %>/edit' method='GET' style="display: inline">
-                <button type="/<%= idea.id %>/edit" class="btn btn-primary" type="button" >Edit!</button> 
-              </form> 
-              <form action='/<%= idea.id %>' method='POST' style="display: inline">
-                <button type="/<%= idea.id %>/" class="btn btn-danger" type="button" >Delete!</button>
-                <input type="hidden" name="_method" value="DELETE">
-              </form>
-              <form action='/<%= idea.id %>/like' method='POST' style="display: inline">
-                <button type ='/<%= idea.id %>/like' class="btn btn-success" type="button">Like!</button>Likes:<span class="badge badge-success"><%= idea.rank %></span>
-              </form>
-            </div> 
-          </div>   
+          <%= erb :'partials/_idea', :layout => false, :locals => { :idea => idea} %>
         <% end %>
       </div>
     </ul>

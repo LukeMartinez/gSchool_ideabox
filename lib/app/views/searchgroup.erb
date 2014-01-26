@@ -7,26 +7,7 @@
     <div class="row">
       <% ideas.each do |idea| %>
         <% if idea.group == search_group%>
-          <div class="col-md-3">
-            <div class="well">
-              <p style="font-family:arial;color:red;font-size:25px;"><%= idea.title %></p>
-              <p style="font-size:12;color:green;">In Group: <%= idea.group %><br/>
-               Created at: <%=idea.created_at.strftime("%a, %e %b %Y at %l:%M %p")%></br></p>
-              <p style="font-size:15px;margin-left:15px"><%= idea.description %></p>
-              <p style="color:blue;"><a href#<%= idea.tags.gsub(" "," #") if idea.tags %></p><br/>
-            
-              <form action='/<%= idea.id %>/edit' method='GET' style="display: inline">
-                <button type="/<%= idea.id %>/edit" class="btn btn-primary" type="button" >Edit!</button> 
-              </form> 
-              <form action='/<%= idea.id %>' method='POST' style="display: inline">
-                <button type="/<%= idea.id %>/" class="btn btn-danger" type="button" >Delete!</button>
-                <input type="hidden" name="_method" value="DELETE">
-              </form>
-              <form action='/<%= idea.id %>/like' method='POST' style="display: inline">
-                <button type ='/<%= idea.id %>/like' class="btn btn-success" type="button" style="margin-right:10px;">Like!</button>Likes:<span class="badge badge-success"><%= idea.rank %></span>
-              </form>
-            </div> 
-          </div>
+          <%= erb :'partials/_idea', :layout => false, :locals => { :idea => idea} %>
         <% end %>
       <% end %>
     </div>
