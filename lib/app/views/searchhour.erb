@@ -1,12 +1,11 @@
 <h1>IdeaBox</h1>
-<h3>Here are the ideas created between <%=search_by_hour%>:00 and <%=search_by_hour%>:59 </h3>
+<h3>Here are the ideas created between <%=search_by_hour%>:00<%=search_am_pm%> and <%=search_by_hour%>:59<%=search_am_pm%> </h3>
 <ul>
   <div class="row">
     <% ideas.each do |idea| %>
-      <% if idea.created_at.hour == search_by_hour.to_i || idea.created_at.hour == search_by_hour.to_i + 12 && idea.am_or_pm == search_am_pm%>
+      <% if idea.hour_match?(search_by_hour, search_am_pm)%>
         <%= erb :'partials/_idea', :layout => false, :locals => { :idea => idea} %>
-      <% end %>
+      <%end%>
     <% end %>
-  <else%>
-  Sorry. No ideas match that search.
+  </div>
 </ul>

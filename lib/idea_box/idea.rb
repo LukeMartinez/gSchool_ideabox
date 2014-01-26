@@ -21,6 +21,10 @@ class Idea
     self.searchable_tags.any? {|tag_letter| params.include?(tag_letter)}
   end
 
+  def hour_match?(searchhour, ampm)
+    self.created_at.hour == searchhour.to_i || self.created_at.hour == searchhour.to_i + 12 && self.am_or_pm == ampm
+  end
+
   def searchable_description
     description.downcase.gsub(/[^\w\s]/,"").split(" ")
   end
