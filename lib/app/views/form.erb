@@ -10,24 +10,7 @@
   <textarea name='idea[description]'maxlength="120"><%= idea.description %></textarea> Description<br/>
   <form>
     <textarea name='idea[tags]'><%= idea.tags %></textarea> Tags<br/>
-      <select name="idea[group]">
-      <% if idea.id %>
-        <option selected=<%idea.group%>><%=idea.group%></option>
-      <%end%>
-        <option value="Misc">Misc.</option>
-        <option value="Travel">Travel</option>
-        <option value="Work">Work</option>
-        <option value="Chores">Chores</option>
-        <option value="School">School</option>
-        <option value="Errands">Errands</option>
-      </select> Select Idea Group<br/>
-      <button type='submit'/ class="btn btn-primary" type="button">Submit Your Idea!</button>
-      <br/>
-      <% if idea.id %>
-        <input type="hidden" name="_method" value="PUT" />
-        <button type='submit'/ class="btn btn-primary" type="button">Submit Your Idea!</button>
-      <br/>
-      <% end %>
+      <%= erb :'partials/_group_dropdown', :layout => false, :locals => { :idea => idea} %>
   </form>
   <%unless idea.id %>
     <form action='/searchtags' method='GET'>
@@ -40,53 +23,12 @@
     <button type='idea[search_description]'/ class="btn btn-primary" type="button">Search By Description!</button>
   </form>
 
-  <form action="/searchday">
-    <select name="idea[search_day]">
-      <option value="Monday">Monday</option>
-      <option value="Tuesday">Tuesday</option>
-      <option value="Wednesday">Wednesday</option>
-      <option value="Thursday">Thursday</option>
-      <option value="Friday">Friday</option>
-      <option value="Saturday">Saturday</option>
-      <option value="Sunday">Sunday</option>
-    </select>
-    <button style="margin-left:31px;" type='search_by_day_of_week'/ class="btn btn-primary" type="button">Search Day Of Week!</button>
-  </form>
+  <%= erb :'partials/_search_day_dropdown', :layout => false, :locals => { :idea => idea} %>
 
-  <form action = "/searchgroup">
-    <select name="idea[search_group]">
-      <option value="Misc">Misc.</option>
-      <option value="Travel">Travel</option>
-      <option value="Work">Work</option>
-      <option value="Chores">Chores</option>
-      <option value="School">School</option>
-      <option value="Errands">Errands</option>
-    </select> 
-    <button style="margin-left:55px;" type='search_by_group'/ class="btn btn-primary" type="button">Search By Group!</button>
-  </form>
-  <p>
-    <form action="/searchhour">
-      <select name="idea[search_hour]">
-        <option value="1">1:00</option>
-        <option value="2">2:00</option>
-        <option value="3">3:00</option>
-        <option value="4">4:00</option>
-        <option value="5">5:00</option>
-        <option value="6">6:00</option>
-        <option value="7">7:00</option>
-        <option value="8">8:00</option>
-        <option value="9">9:00</option>
-        <option value="10">10:00</option>
-        <option value="11">11:00</option>
-        <option value="12">12:00</option>
-      </select>
-      <select name="idea[am_pm]">
-      <option value="AM">AM</option>
-      <option value="PM">PM</option>
-      </select>
-      <button type='search_by_hour'/ class="btn btn-primary" type="button">Search By Hour of The Day!</button>
-    </form>
-  <p/>
+  <%= erb :'partials/_search_group_dropdown', :layout => false, :locals => { :idea => idea} %>
+
+  <%= erb :'partials/_search_hour_dropdown', :layout => false, :locals => { :idea => idea} %>
+
   <%end%>
 </form>
 
