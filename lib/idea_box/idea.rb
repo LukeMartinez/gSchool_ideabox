@@ -22,7 +22,9 @@ class Idea
   end
 
   def hour_match?(searchhour, ampm)
-    self.created_at.hour == searchhour.to_i || self.created_at.hour == searchhour.to_i + 12 && self.am_or_pm == ampm
+    self.created_at.hour == searchhour.to_i || 
+    self.created_at.hour == searchhour.to_i + 12 && 
+    self.am_or_pm == ampm
   end
 
   def searchable_description
@@ -30,21 +32,19 @@ class Idea
   end
 
   def day_of_the_week
-    if created_at.wday == 0
-      "Sunday"
-    elsif created_at.wday == 1
-      "Monday"
-    elsif created_at.wday == 2
-      "Tuesday"
-    elsif created_at.wday == 3
-      "Wednesday"
-    elsif created_at.wday == 4
-      "Thursday"
-    elsif created_at.wday == 5
-      "Friday"
-    else
-      "Saturday"
-    end
+    {
+      0 => "Sunday",
+      1 => "Monday",
+      2 => "Tuesday",
+      3 => "Wednesday",
+      4 => "Thursday",
+      5 => "Friday",
+      6 => "Saturday"
+    }
+  end
+
+  def w_day
+    created_at.wday
   end
 
   def am_or_pm

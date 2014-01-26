@@ -4,7 +4,7 @@
   <form>
     <div class="row">
       <% ideas.each do |idea| %>
-        <% if idea.day_of_the_week == search_by_day %>
+        <% if idea.day_of_the_week[idea.w_day] == search_by_day %>
           <%= erb :'partials/_idea', :layout => false, :locals => { :idea => idea} %>
         <% end %>
       <% end %>

@@ -1,33 +1,31 @@
 <form action='/<%= idea.id %>' method='POST'>
-<p>
-  <% if idea.id %>
-    Edit your Idea:
-  <% else %>
-    Your Idea:
-  <% end %>
+  <p>
+    <% if idea.id %>
+      Edit your Idea:
+    <% else %>
+      Your Idea:
+    <% end %>
   </p>
   <input type='text' name='idea[title]'  value="<%= idea.title %>"/> Name<br/>
   <textarea name='idea[description]'maxlength="120"><%= idea.description %></textarea> Description<br/>
-  <form>
-    <textarea name='idea[tags]'><%= idea.tags %></textarea> Tags<br/>
-      <%= erb :'partials/_group_dropdown', :layout => false, :locals => { :idea => idea} %>
-  </form>
+  <textarea name='idea[tags]'><%= idea.tags %></textarea> Tags<br/>
+  <%= erb :'partials/_group_dropdown', :layout => false, :locals => { :idea => idea} %>
   <%unless idea.id %>
     <form action='/searchtags' method='GET'>
       <input type='text' name='idea[search_tags]'>
       <button type='idea[search_tags]'/ class="btn btn-primary" type="button">Search By Tag!</button>
     </form>
 
-  <form action='/searchdescription' method='GET'>  
-    <input type='text' name='idea[search_description]'>
-    <button type='idea[search_description]'/ class="btn btn-primary" type="button">Search By Description!</button>
-  </form>
+    <form action='/searchdescription' method='GET'>  
+      <input type='text' name='idea[search_description]'>
+      <button type='idea[search_description]'/ class="btn btn-primary" type="button">Search By Description!</button>
+    </form>
 
-  <%= erb :'partials/_search_day_dropdown', :layout => false, :locals => { :idea => idea} %>
+    <%= erb :'partials/_search_day_dropdown', :layout => false, :locals => { :idea => idea} %>
 
-  <%= erb :'partials/_search_group_dropdown', :layout => false, :locals => { :idea => idea} %>
+    <%= erb :'partials/_search_group_dropdown', :layout => false, :locals => { :idea => idea} %>
 
-  <%= erb :'partials/_search_hour_dropdown', :layout => false, :locals => { :idea => idea} %>
+    <%= erb :'partials/_search_hour_dropdown', :layout => false, :locals => { :idea => idea} %>
 
   <%end%>
 </form>
