@@ -12,27 +12,33 @@
     <textarea name='idea[tags]'><%= idea.tags %></textarea> Tags<br/>
     <%= erb :'partials/_group_dropdown', :layout => false, :locals => { :idea => idea} %>
   </div>
+  <h3 id="filter-header"> Filter Your Ideas! </h3>
   <ul id="search-fields">
-
+    <li>
     <%unless idea.id %>
       <form action='/searchtags' method='GET'>
         <input type='text' name='idea[search_tags]'>
         <button type='idea[search_tags]'/ class="button" type="button">Search By Tag!</button>
       </form>
-
-
+    </li>
+    <li>
       <form action='/searchdescription' method='GET'>  
         <input type='text' name='idea[search_description]'>
         <button type='idea[search_description]'/ class="button" type="button">Search By Description!</button>
       </form>
 
-
+    <li>
       <%= erb :'partials/_search_day_dropdown', :layout => false, :locals => { :idea => idea} %>
-
+    </li>
+    <br/>
+    <br/>
+    <br/>
+    <li id="group-search">
       <%= erb :'partials/_search_group_dropdown', :layout => false, :locals => { :idea => idea} %>
-
+    </li>
+    <li id="hour-search">
       <%= erb :'partials/_search_hour_dropdown', :layout => false, :locals => { :idea => idea} %>
-
+    </li>
     <%end%>
   </ul>
 </form>
