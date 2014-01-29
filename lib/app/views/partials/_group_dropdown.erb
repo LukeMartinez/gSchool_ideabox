@@ -1,4 +1,4 @@
-<select name="idea[group]">
+<select id="group-dropdown" name="idea[group]">
   <% if idea.id %>
     <option selected=<%idea.group%>><%=idea.group%></option>
   <%end%>
@@ -9,6 +9,6 @@
   <option value="School">School</option>
   <option value="Errands">Errands</option>
 </select> Select Idea Group<br/>
-<button type='submit'/ class="btn btn-primary" type="button">Submit Your Idea!</button>
+<button type='submit'/ class="button" type="button">Submit Your Idea!</button>
 <br/>
 <br/>

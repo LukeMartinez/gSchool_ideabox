@@ -1,32 +1,39 @@
 <form action='/<%= idea.id %>' method='POST'>
-  <p>
-    <% if idea.id %>
-      Edit your Idea:
-    <% else %>
-      Your Idea:
-    <% end %>
-  </p>
-  <input type='text' name='idea[title]'  value="<%= idea.title %>"/> Name<br/>
-  <textarea name='idea[description]'maxlength="120"><%= idea.description %></textarea> Description<br/>
-  <textarea name='idea[tags]'><%= idea.tags %></textarea> Tags<br/>
-  <%= erb :'partials/_group_dropdown', :layout => false, :locals => { :idea => idea} %>
-  <%unless idea.id %>
-    <form action='/searchtags' method='GET'>
-      <input type='text' name='idea[search_tags]'>
-      <button type='idea[search_tags]'/ class="btn btn-primary" type="button">Search By Tag!</button>
-    </form>
+  <div id ="idea-form">
+    <p>
+      <% if idea.id %>
+        Edit your Idea:
+      <% else %>
+        Your Idea:
+      <% end %>
+    </p>
+    <input type='text' name='idea[title]'  value="<%= idea.title %>"/> Title<br/>
+    <textarea id="description" name='idea[description]'maxlength="120"><%= idea.description %></textarea> Your Idea<br/>
+    <textarea name='idea[tags]'><%= idea.tags %></textarea> Tags<br/>
+    <%= erb :'partials/_group_dropdown', :layout => false, :locals => { :idea => idea} %>
+  </div>
+  <ul id="search-fields">
 
-    <form action='/searchdescription' method='GET'>  
-      <input type='text' name='idea[search_description]'>
-      <button type='idea[search_description]'/ class="btn btn-primary" type="button">Search By Description!</button>
-    </form>
+    <%unless idea.id %>
+      <form action='/searchtags' method='GET'>
+        <input type='text' name='idea[search_tags]'>
+        <button type='idea[search_tags]'/ class="button" type="button">Search By Tag!</button>
+      </form>
 
-    <%= erb :'partials/_search_day_dropdown', :layout => false, :locals => { :idea => idea} %>
 
-    <%= erb :'partials/_search_group_dropdown', :layout => false, :locals => { :idea => idea} %>
+      <form action='/searchdescription' method='GET'>  
+        <input type='text' name='idea[search_description]'>
+        <button type='idea[search_description]'/ class="button" type="button">Search By Description!</button>
+      </form>
 
-    <%= erb :'partials/_search_hour_dropdown', :layout => false, :locals => { :idea => idea} %>
 
-  <%end%>
+      <%= erb :'partials/_search_day_dropdown', :layout => false, :locals => { :idea => idea} %>
+
+      <%= erb :'partials/_search_group_dropdown', :layout => false, :locals => { :idea => idea} %>
+
+      <%= erb :'partials/_search_hour_dropdown', :layout => false, :locals => { :idea => idea} %>
+
+    <%end%>
+  </ul>
 </form>
 
